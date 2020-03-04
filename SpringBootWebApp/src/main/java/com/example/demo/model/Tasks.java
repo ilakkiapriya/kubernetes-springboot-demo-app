@@ -13,7 +13,6 @@ import javax.persistence.Table;
  * Because do not specify the entity table name 
  * then use Task as the table name by default. */
 @Entity
-@Table
 public class Tasks {
 
     /* Identify id as this entity's unique identifier. The id value is auto generated. */
@@ -22,44 +21,91 @@ public class Tasks {
 	 @Column(name="tid", updatable=false,nullable=false)
 	private Long tid;
  
-	private String taskName;
+	private String tname;
 
-    private String assignedTo;
+	private Date createddate;
 
-    private Date date;
+	private Date lastupdated;
+
+	private Date deadline;
+
+	private String tstatus;
+
+	private String assignedto;
+
+	private String comments;
 
     private String priority;
 
-    private String status;
-    
-	/*
-	 * public Long getTid() { return tid; }
-	 * 
-	 * public void setTid(Long tid) { this.tid = tid; }
-	 */
+	private Date closeddate;
 
-	public String getTaskName() {
-		return taskName;
+    private String complexity;
+
+	private String label;
+
+
+	public Long getTid() {
+		return tid;
 	}
 
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
+	public void setTid(Long tid) {
+		this.tid = tid;
 	}
 
-	public String getAssignedTo() {
-		return assignedTo;
+	public String getTname() {
+		return tname;
 	}
 
-	public void setAssignedTo(String assignedTo) {
-		this.assignedTo = assignedTo;
+	public void setTname(String tname) {
+		this.tname = tname;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getCreateddate() {
+		return createddate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCreateddate(Date createddate) {
+		this.createddate = createddate;
+	}
+
+	public Date getLastupdated() {
+		return lastupdated;
+	}
+
+	public void setLastupdated(Date lastupdated) {
+		this.lastupdated = lastupdated;
+	}
+
+	public Date getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
+	}
+
+	public String getTstatus() {
+		return tstatus;
+	}
+
+	public void setTstatus(String tstatus) {
+		this.tstatus = tstatus;
+	}
+
+	public String getAssignedto() {
+		return assignedto;
+	}
+
+	public void setAssignedto(String assignedto) {
+		this.assignedto = assignedto;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
 	public String getPriority() {
@@ -70,11 +116,27 @@ public class Tasks {
 		this.priority = priority;
 	}
 
-	public String getStatus() {
-		return status;
+	public Date getCloseddate() {
+		return closeddate;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setCloseddate(Date closeddate) {
+		this.closeddate = closeddate;
+	}
+
+	public String getComplexity() {
+		return complexity;
+	}
+
+	public void setComplexity(String complexity) {
+		this.complexity = complexity;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 }

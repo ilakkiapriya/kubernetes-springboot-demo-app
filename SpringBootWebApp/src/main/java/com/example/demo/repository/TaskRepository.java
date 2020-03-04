@@ -11,5 +11,5 @@ public interface TaskRepository extends JpaRepository<Tasks, Long> {
      * will implement the detail jdbc query code which we do not need to care, we just 
      * need to call this method and pass in the userName to get result list. 
      * */
-    List<Tasks> findByTaskName(String taskName);
+    List<Tasks> findAll();
 }

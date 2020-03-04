@@ -20,11 +20,11 @@
             <td>Status</td>
         </tr>
         <tr th:each="tasks : ${tasks}">
-            <td th:text="${tasks.taskName}"></td>
-            <td th:text="${tasks.assignedTo}"></td>
-            <td th:text="${tasks.date}"></td>
+            <td th:text="${tasks.tname}"></td>
+            <td th:text="${tasks.assignedto}"></td>
+            <td th:text="${tasks.lastupdated}"></td>
             <td th:text="${tasks.priority}"></td>
-            <td th:text="${tasks.status}"></td>
+            <td th:text="${tasks.tstatus}"></td>
         </tr>
     </table>
 
