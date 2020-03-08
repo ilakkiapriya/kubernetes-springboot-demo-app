@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+  labels:
+    app: trackerapp-springboot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trackerapp-springboot
+  template:
+    metadata:
+      labels:
+        app: trackerapp-springboot
+    spec:
+      containers:
+        - name: springboot
+          image: ilakkiapriya/demoapps:0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: ROOT_PASSWORD
