@@ -20,3 +20,13 @@ To Create the mysql pod
     b) sudo apt install mysql-workbench // install the mysql client on the machine where you intend to access the db
     c) kubectl port-forward <mysql podname> 3306:3306  //run this on above machine machine where sqlbench client is installed
     c) Open mysql-workbench and connect to mysql-db (localhost and port 3306).
+
+To create spring-boot app and exposing it via NodePort service outside the cluster
+   1) Build and publish the docker image for the spring-boot app 
+        docker build -t ilakkiapriya/demoapps .
+        docker images (check the image in the local docker report)
+        docker push ilakkiapriya/demoapps
+   2) kubectl apply -f kube-yamls/spring-boot/springboot-deployment.yml  
+   3) kubectl exec -it <pod-name> -- /bin/sh  (Check if the pod is running and exposing the http port 3000 via netstat command)
+   4) kubectl apply -f kube-yamls/spring-boot/tasktracker-service.yml  (expose the spring boot app via NodePort service)
+   5) Open the link in any of the node's browser http://localhost:30000/tasks/listTask
